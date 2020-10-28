@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New user</title>
+</head>
+<body>
+<form method="POST" action="{% url "emp_add" %}">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            {{user_form.as_table}}
+        </table>
+        <br>
+        <button type="submit" class="btn btn-success float-right">Add Employee</button>
+    {% if messages %}
+        <p>
+        {% for x in messages %}
+            {{ x }}
+        {% endfor %}
+        </p>
+    {% endif %}
+    </form>
+</body>
+</html>

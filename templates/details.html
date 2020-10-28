@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>User's list page</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    {% if =="Admin" %}
+        {% for x in data %}
+            <tr>
+            <th>{{ x.first_name }} {{ x.last_name }}</th>
+            <th>{{ x.email }}</th>
+            <th><a href=""><input type="button" value="Details"></a></th>
+            <th><a href=""><input type="button" value="Edit"></a></th>
+            <th><a href=""><input type="button" value="Delete"></a></th>
+            </tr>
+        {% endfor %}
+        {% else %}
+        {% for x in data %}
+            <tr>
+            <th>{{ x.uname }}</th>
+            <th>{{ x.uemail }}</th>
+            <th><a href=""><input type="button" value="Details"></a></th>
+            </tr>
+        {% endfor %}
+    </table>
+
+</form>
+</body>
+</html>

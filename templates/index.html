@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+<form action="{% url "user_login" %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <th>
+                User Login
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="text" placeholder="Email" size="30" name="username" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="password" placeholder="Password" size="30" name="password" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="Login"> <a href="{% url "user_register" %}"><input type="button" value="SignUp"></a>
+            </th>
+        </tr>
+        {% if messages %}
+
+            <tr>
+                <th>
+                    {% for x in messages %}
+                        {{ x }}
+                    {% endfor %}
+                </th>
+            </tr>
+
+        {% endif %}
+    </table>
+</form>
+</body>
+</html>
